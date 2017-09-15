@@ -1,0 +1,26 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "new repo",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "nba.js": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoiSudai/TestRepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoiSudai/TestRepo/issues"
+  },
+  "homepage": "https://github.com/RoiSudai/TestRepo#readme"
+}
