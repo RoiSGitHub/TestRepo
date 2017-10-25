@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+#temp files
+tmp/
+
 gulpfile.js
 gulpfile.js

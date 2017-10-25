@@ -1,5 +1,4 @@
 const nba = require('nba.js').default;
-var fs = require('fs');
 var jsonfile = require('jsonfile')
 
 var Api = {
@@ -16,7 +15,7 @@ var Api = {
     getGameByDate: function(year){
         nba.data.schedule({year: year}, function(err, res){
             if (err) {
-                console.error(err);
+                console.log(err);
                 return;
             } 
             jsonfile.writeFile("./tmp/test.json", res, {spaces: 2}, function (err) {
@@ -24,6 +23,14 @@ var Api = {
                     console.log(err);
             });
         });
+    },
+    getGameScore: function(gameId, gameDate, callback){
+        nba.data.miniBoxscore({date: gameDate, gameId: gameId}, function(err, res){
+            if (err)
+                console.log(err);
+            else
+                callback(res);
+        })
     }        
 }
 module.exports = Api;
