@@ -2,26 +2,24 @@ const nba = require('nba.js').default;
 var jsonfile = require('jsonfile')
 
 var Api = {
-    allPlayers: function(){
+    allPlayers: function(callback){
         nba.stats.allPlayers(function(err, res) {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-                
-                
-                })
-            },
-    getGameByDate: function(year){
-        nba.data.schedule({year: year}, function(err, res){
-            if (err) {
+            if (err)
                 console.log(err);
-                return;
-            } 
-            jsonfile.writeFile("./tmp/test.json", res, {spaces: 2}, function (err) {
-                if(err)
-                    console.log(err);
-            });
+            else    
+                callback(res);
+            })
+        },
+    getGameByDate: function(year, callback){
+        nba.data.schedule({year: year}, function(err, res){
+            if (err) 
+                console.log(err);
+            else    
+                callback(res);
+            // jsonfile.writeFile("./tmp/test.json", res, {spaces: 2}, function (err) {
+            //     if(err)
+            //         console.log(err);
+            // });
         });
     },
     getGameScore: function(gameId, gameDate, callback){
